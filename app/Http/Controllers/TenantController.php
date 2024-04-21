@@ -13,7 +13,11 @@ class TenantController extends Controller
      */
     public function index()
     {
-        return view('tenants.index');
+
+        $tenants = Tenant::with('domains')->get();
+            // dd($tenants->toArray());
+        return view('tenants.index', ['tenants'=> $tenants]);
+
     }
 
     /**
