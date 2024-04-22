@@ -24,7 +24,7 @@ Route::middleware([
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     Route::get('/', function () {
-        return view('app.welcome');
+        return 'This is your multi-tenant application. The id of the current tenant is ' . tenant('id');
     });
 
     Route::get('login',function(){
